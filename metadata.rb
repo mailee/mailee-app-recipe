@@ -8,6 +8,5 @@ version          '0.1.0'
 
 depends 'postgresql', '~> 3.3.0'
 depends 'redisio', '~> 1.7.0'
-depends 'rbenv', '~> 1.7.0'
 depends 'bluepill', '~> 2.3.1'
 
