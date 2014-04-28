@@ -7,23 +7,6 @@
 # All rights reserved - Do Not Redistribute
 include_recipe "bluepill"
 
-execute "postgres: create user mailee" do
-    code = <<-EOH
-    psql -U postgres -c "select * from pg_user where usename='mailee'" | grep -c mailee
-    EOH
-    command "su - postgres -c 'createuser -s mailee'"
-    not_if code
-end
-
-
-execute "postgres: create database mailee_development" do
-    exists = <<-EOH
-    psql -U postgres -c "select * from pg_database WHERE datname='mailee_development'" | grep -c mailee_development
-    EOH
-    command "createdb -U mailee -O mailee -E utf8 mailee_development"
-    not_if exists
-end
-
 package "libsqlite3-dev"
 rmagick_dependencies = %w{imagemagick libmagickcore-dev libmagickcore5 librmagick-ruby graphicsmagick imagemagick-common libmagick++-dev}
 rmagick_dependencies.each{|d| package d }
