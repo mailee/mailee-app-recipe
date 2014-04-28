@@ -5,9 +5,6 @@
 # Copyright (C) 2014 YOUR_NAME
 #
 # All rights reserved - Do Not Redistribute
-include_recipe "rbenv::default"
-include_recipe "rbenv::ruby_build"
-include_recipe "rbenv::rbenv_vars"
 include_recipe "bluepill"
 
 execute "postgres: create user mailee" do
@@ -30,15 +27,6 @@ end
 package "libsqlite3-dev"
 rmagick_dependencies = %w{imagemagick libmagickcore-dev libmagickcore5 librmagick-ruby graphicsmagick imagemagick-common libmagick++-dev}
 rmagick_dependencies.each{|d| package d }
-
-rbenv_ruby "1.9.2-p320" do
-  ruby_version "1.9.2-p320"
-  global true
-end
-
-rbenv_gem "bundler" do
-  ruby_version "1.9.2-p320"
-end
 
 template '/etc/bluepill/mailee.pill' do
   source 'mailee.pill.erb'
