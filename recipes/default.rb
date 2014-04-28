@@ -8,7 +8,6 @@
 include_recipe "bluepill"
 
 package "libsqlite3-dev"
-package "wkhtmltopdf"
 rmagick_dependencies = %w{imagemagick libmagickcore-dev libmagickcore5 librmagick-ruby graphicsmagick imagemagick-common libmagick++-dev}
 rmagick_dependencies.each{|d| package d }
 
@@ -24,3 +23,18 @@ link "/usr/local/bin/bluepill" do
   to "/opt/rbenv/shims/bluepill"
 end
 
+%w{libxrender1 libfontconfig1 otf-ipafont-gothic libxext6}.each do |pkg|
+  package pkg do
+    action :install
+  end
+end
+
+bash "wkhtmltoimage install." do
+  user "root"
+  cwd "/tmp"
+  code <<-EOH
+    wget 'https://wkhtmltopdf.googlecode.com/files/wkhtmltoimage-0.10.0_rc2-static-amd64.tar.bz2';
+    tar xjfv wkhtmltoimage-0.10.0_rc2-static-amd64.tar.bz2
+    mv wkhtmltoimage-amd64 /usr/local/bin
+  EOH
+end
