@@ -8,6 +8,7 @@
 include_recipe "bluepill"
 
 package "libsqlite3-dev"
+package 'wkhtmltoimage'
 rmagick_dependencies = %w{imagemagick libmagickcore-dev libmagickcore5 librmagick-ruby graphicsmagick imagemagick-common libmagick++-dev}
 rmagick_dependencies.each{|d| package d }
 
