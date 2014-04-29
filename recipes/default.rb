@@ -20,7 +20,7 @@ bluepill_service 'mailee' do
 end
 
 link "/usr/local/bin/bluepill" do
-  to "/opt/rbenv/shims/bluepill"
+  to "/usr/local/rbenv/shims/bluepill"
 end
 
 %w{libxrender1 libfontconfig1 otf-ipafont-gothic libxext6}.each do |pkg|
