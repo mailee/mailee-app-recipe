@@ -96,8 +96,6 @@ Vagrant.configure("2") do |config|
         "recipe[postgresql::contrib]",
         "recipe[redisio::install]",
         "recipe[redisio::enable]",
-        "recipe[rbenv]",
-        "recipe[rbenv::ruby_build]",
         "recipe[mailee-app::default]"
     ]
   end
