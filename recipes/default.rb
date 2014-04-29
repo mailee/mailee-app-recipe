@@ -33,8 +33,8 @@ bash "wkhtmltoimage install." do
   user "root"
   cwd "/tmp"
   code <<-EOH
-    wget 'https://wkhtmltopdf.googlecode.com/files/wkhtmltoimage-0.10.0_rc2-static-amd64.tar.bz2';
-    tar xjfv wkhtmltoimage-0.10.0_rc2-static-amd64.tar.bz2
-    mv wkhtmltoimage-amd64 /usr/local/bin
+    wget https://wkhtmltopdf.googlecode.com/files/wkhtmltoimage-0.11.0_rc1-static-i386.tar.bz2
+    tar xjfv wkhtmltoimage-0.11.0_rc1-static-i386.tar.bz2
+    mv wkhtmltoimage /usr/local/bin
   EOH
 end
